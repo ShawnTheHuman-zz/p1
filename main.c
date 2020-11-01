@@ -33,8 +33,10 @@ int main(int argc, char* argv[]){
         else {
             ntoken = yylex();
             while (ntoken) {
+
                 printf("Token: %s, Data: %s, Line: %d\n", tokenNames[ntoken], yytext, yylineno);
                 ntoken = yylex();
+
             }
         }
     }

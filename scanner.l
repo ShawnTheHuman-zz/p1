@@ -1,8 +1,10 @@
 %{
 #include "scanner.h"
+//#include "y.tab.h"
 %}
 
 %option nounput yylineno
+
 
 
 %%
@@ -14,9 +16,11 @@
 "="|"<="|">="|":"|"+"|"-"|"*"|"/"|"%"|"."|"("|")"|","|"{"|"}"|";"|"["|"]"	return DELOP;
 [a-zA-Z][_a-zA-Z0-9]*	return IDENTIFIER;
 [1-9][0-9]*		return INTEGER;
-[_\n\t]			;
+[ _\t\r\s\n]			;
 ^"#".+$			return COMMENT;
-.			;
+
+.			    {printf("ERROR: Unknown Character\n"); return UNKNOWN;}
+<<EOF>>         { printf("EOF\n"); yyterminate(); }
 %%
 
 int yywrap(void){

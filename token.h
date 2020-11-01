@@ -4,7 +4,7 @@
 
 
 
-char* tokenNames[] = {NULL,"Identifier","Keyword","Integer","Del/Op","Comment"};
+char* tokenNames[] = {NULL,"Identifier","Keyword","Integer","Del/Op","Comment","Unknown","EOF"};
 extern char* yytext;
 extern int yylineno;
 
