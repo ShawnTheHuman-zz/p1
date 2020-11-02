@@ -510,8 +510,10 @@ char *yytext;
 #line 1 "scanner.l"
 #line 2 "scanner.l"
 #include "scanner.h"
-#line 514 "lex.yy.c"
-#line 515 "lex.yy.c"
+#include <stdio.h>
+#include <stdlib.h>
+#line 516 "lex.yy.c"
+#line 517 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -729,12 +731,12 @@ YY_DECL
 		}
 
 	{
-#line 7 "scanner.l"
+#line 9 "scanner.l"
 
 
 
 
-#line 738 "lex.yy.c"
+#line 740 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -804,33 +806,33 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 11 "scanner.l"
+#line 13 "scanner.l"
 return KEYWORD;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 12 "scanner.l"
+#line 14 "scanner.l"
 return COMMENT; printf("\n");
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 13 "scanner.l"
+#line 15 "scanner.l"
 return DELOP;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 14 "scanner.l"
+#line 16 "scanner.l"
 return IDENTIFIER;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 15 "scanner.l"
+#line 17 "scanner.l"
 return INTEGER;
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 16 "scanner.l"
+#line 18 "scanner.l"
 ;
 	YY_BREAK
 case 7:
@@ -838,24 +840,24 @@ case 7:
 (yy_c_buf_p) = yy_cp -= 1;
 YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 17 "scanner.l"
+#line 19 "scanner.l"
 return COMMENT;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 19 "scanner.l"
+#line 21 "scanner.l"
 {yyerror("ERROR: Invalid Character ");}
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 20 "scanner.l"
+#line 22 "scanner.l"
 { printf("EOF\n"); yyterminate(); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 21 "scanner.l"
+#line 23 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 859 "lex.yy.c"
+#line 861 "lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1831,7 +1833,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 21 "scanner.l"
+#line 23 "scanner.l"
 
 
 int yywrap(void){
@@ -1839,6 +1841,6 @@ int yywrap(void){
 }
 
 void yyerror(char *s) {
-    fprintf(stderr, "line %d: %s\n", yylineno, s);
+    fprintf(stderr, "%s line: %d \n", s, yylineno);
 }
 

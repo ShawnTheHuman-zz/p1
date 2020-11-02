@@ -1,5 +1,7 @@
 %{
 #include "scanner.h"
+#include <stdio.h>
+#include <stdlib.h>
 %}
 
 %option nounput yylineno
@@ -25,5 +27,5 @@ int yywrap(void){
 }
 
 void yyerror(char *s) {
-    fprintf(stderr, "line %d: %s\n", yylineno, s);
+    fprintf(stderr, "%s line: %d \n", s, yylineno);
 }
