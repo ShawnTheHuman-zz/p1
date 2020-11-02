@@ -3,10 +3,7 @@
 #include "scanner.h"
 
 
-extern int yylex();
-extern int yylineno;
-extern char* yytext;
-FILE *yyin;
+
 
 
 int main(int argc, char* argv[]){

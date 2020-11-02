@@ -510,9 +510,8 @@ char *yytext;
 #line 1 "scanner.l"
 #line 2 "scanner.l"
 #include "scanner.h"
-//#include "y.tab.h"
+#line 514 "lex.yy.c"
 #line 515 "lex.yy.c"
-#line 516 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -730,12 +729,12 @@ YY_DECL
 		}
 
 	{
-#line 10 "scanner.l"
+#line 7 "scanner.l"
 
 
 
 
-#line 739 "lex.yy.c"
+#line 738 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -805,33 +804,33 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 14 "scanner.l"
+#line 11 "scanner.l"
 return KEYWORD;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 15 "scanner.l"
+#line 12 "scanner.l"
 return COMMENT; printf("\n");
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 16 "scanner.l"
+#line 13 "scanner.l"
 return DELOP;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 17 "scanner.l"
+#line 14 "scanner.l"
 return IDENTIFIER;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 18 "scanner.l"
+#line 15 "scanner.l"
 return INTEGER;
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 19 "scanner.l"
+#line 16 "scanner.l"
 ;
 	YY_BREAK
 case 7:
@@ -839,24 +838,24 @@ case 7:
 (yy_c_buf_p) = yy_cp -= 1;
 YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 20 "scanner.l"
+#line 17 "scanner.l"
 return COMMENT;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 22 "scanner.l"
-{printf("ERROR: Unknown Character\n"); return UNKNOWN;}
+#line 19 "scanner.l"
+{yyerror("ERROR: Invalid Character ");}
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 23 "scanner.l"
+#line 20 "scanner.l"
 { printf("EOF\n"); yyterminate(); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 24 "scanner.l"
+#line 21 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 860 "lex.yy.c"
+#line 859 "lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1832,10 +1831,14 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 24 "scanner.l"
+#line 21 "scanner.l"
 
 
 int yywrap(void){
 	return 1;
+}
+
+void yyerror(char *s) {
+    fprintf(stderr, "line %d: %s\n", yylineno, s);
 }
 

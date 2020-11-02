@@ -1,11 +1,8 @@
 %{
 #include "scanner.h"
-//#include "y.tab.h"
 %}
 
 %option nounput yylineno
-
-
 
 %%
 
@@ -19,10 +16,14 @@
 [ _\t\r\s\n]			;
 ^"#".+$			return COMMENT;
 
-.			    {printf("ERROR: Unknown Character\n"); return UNKNOWN;}
+.			    {yyerror("ERROR: Invalid Character ");}
 <<EOF>>         { printf("EOF\n"); yyterminate(); }
 %%
 
 int yywrap(void){
 	return 1;
+}
+
+void yyerror(char *s) {
+    fprintf(stderr, "line %d: %s\n", yylineno, s);
 }

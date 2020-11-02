@@ -7,3 +7,6 @@
 #define END_OF_FILE 7
 
 extern FILE *yyin;
+extern int yylex();
+
+void yyerror(char *s);
