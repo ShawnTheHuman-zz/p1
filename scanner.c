@@ -9,6 +9,9 @@ extern int yylineno;
 extern char* yytext;
 FILE *yyin;
 
+
+// yylex reads each character, tokenizing according to the
+// rules written in scanner.l
 void scanner(){
     int token;
     token = yylex();
