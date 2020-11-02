@@ -1,3 +1,6 @@
+// definitions for each token type
+// and functions used.
+
 #define IDENTIFIER 1
 #define KEYWORD 2
 #define INTEGER 3	
@@ -10,3 +13,5 @@ extern FILE *yyin;
 extern int yylex();
 
 void yyerror(char *s);
+void scanner();
+void testScanner();
